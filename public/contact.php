@@ -44,7 +44,7 @@ $safeName = str_replace(["\r", "\n"], '', $name);
 $safeEmail = str_replace(["\r", "\n"], '', $email);
 $safeSubject = str_replace(["\r", "\n"], '', $subject);
 
-$to = 'info@tormontgroup.com';
+$to = 'support@themeix.com';
 $email_subject = "The Tormont 50 Contact Form: $safeSubject";
 $email_body = "Name: $name\nEmail: $email\nPhone: $phone\nSubject: $subject\n\nMessage:\n$message";
 $headers = "From: $safeName <$safeEmail>\r\n";

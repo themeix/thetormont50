@@ -1,0 +1,33 @@
+# The Tormont 50
+
+> A consultancy group built for boards, CEOs, and investors. We don't just measure performance — we create alignment, resolve disconnects, and design strategies that build long-term shareholder trust and value.
+
+- Website: https://thetormont50.com/
+- Contact Email: info@tormontgroup.com
+- LinkedIn: https://www.linkedin.com/company/thetormont50page/
+- Full Documentation: https://thetormont50.com/llms-full.txt
+
+## Core Pages
+
+- [Home](https://thetormont50.com/): Overview of The Tormont 50, core capabilities, evolution, podcast spotlight, 5-step process, differentiators, and industry partners.
+- [About](https://thetormont50.com/about): Our evolution from a market ranking platform into a shareholder-focused consultancy for boards and CEOs.
+- [Process](https://thetormont50.com/process): Our 5-step methodology — Discovery, Audit, Rapid Resolution, Design, and Feedback Loop.
+- [Services](https://thetormont50.com/services): Capital advisory, shareholder value audits, governance alignment, rapid resolutions, and continuous alignment.
+- [Leadership](https://thetormont50.com/leadership): Executive team and advisors leading The Tormont 50.
+- [Contact](https://thetormont50.com/contact): Reach our team, explore FAQs, or book a Discovery Call/Offsite.
+
+## Leadership Profiles
+
+- [Patrick Wood](https://thetormont50.com/team/patrick-wood)
+- [Kara Wood](https://thetormont50.com/team/kara-wood)
+- [Laurie Clarke](https://thetormont50.com/team/laurie-clarke)
+- [Andrea Doggett](https://thetormont50.com/team/andrea-doggett)
+- [Gellei Canoy](https://thetormont50.com/team/gellei-canoy)
+- [Gianne Chay Manlongat](https://thetormont50.com/team/gianne-chay-manlongat)
+- [Nurullah Hossain](https://thetormont50.com/team/nurullah-hossain)
+- [Zubair Ayub](https://thetormont50.com/team/zubair-ayub)
+
+## Legal & Policies
+
+- [Privacy Policy](https://thetormont50.com/privacy-policy)
+- [Cookie Policy](https://thetormont50.com/cookie-policy)

@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { teamMembers } from '../../data/team';
+import { teamMemberSchema } from '../../data/schemas';
 
 export function getStaticPaths() {
   return teamMembers.map((member) => ({
@@ -12,6 +13,10 @@ export function getStaticPaths() {
 const { member } = Astro.props;
 ---
 
-<Layout title={`${member.name} – Tormont 50`}>
+<Layout
+  title={`${member.name} – Tormont 50`}
+  description={`${member.name} — Leadership profile at The Tormont 50.`}
+  schema={teamMemberSchema(member.name, member.slug)}
+>
   <Fragment set:html={member.html} />
 </Layout>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://thetormont50.com/sitemap-index.xml
+
+# LLM Context
+# See https://thetormont50.com/llms.txt and https://thetormont50.com/llms-full.txt

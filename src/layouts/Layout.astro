@@ -8,6 +8,8 @@ interface Props {
   description?: string;
   ogImage?: string;
   bodyClass?: string;
+  noindex?: boolean;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
@@ -15,7 +17,44 @@ const {
   description = 'The Tormont 50 is redefining institutional markets & capital advisory with bespoke research, strategic advisory, and capital formation.',
   ogImage = '/images/68d00645161115b0793e8d90_68ca4d61c97263630e0a65a9_the-tormont-50.jpg',
   bodyClass = '',
+  noindex = false,
+  schema,
 } = Astro.props;
+
+const siteOrigin = Astro.site?.origin ?? 'https://thetormont50.com';
+const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
+const ogImageUrl = new URL(ogImage, siteOrigin).href;
+
+const baseOrganization = {
+  '@type': ['Organization', 'ProfessionalService'],
+  '@id': `${siteOrigin}/#organization`,
+  name: 'The Tormont 50',
+  alternateName: 'Tormont 50',
+  url: siteOrigin,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${siteOrigin}/images/68c953f29fc3e99eb7ef6793_Tormont-50-logo-.png`,
+  },
+  email: 'info@tormontgroup.com',
+  sameAs: ['https://www.linkedin.com/company/thetormont50page/'],
+  description:
+    'A consultancy group built for boards, CEOs, and investors. We create alignment, resolve disconnects, and design strategies that build long-term shareholder trust and value.',
+};
+
+const baseWebsite = {
+  '@type': 'WebSite',
+  '@id': `${siteOrigin}/#website`,
+  url: siteOrigin,
+  name: 'The Tormont 50',
+  publisher: { '@id': `${siteOrigin}/#organization` },
+  inLanguage: 'en',
+};
+
+const extraSchemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
+const jsonLdGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [baseOrganization, baseWebsite, ...extraSchemas],
+};
 ---
 
 <!doctype html>
@@ -25,20 +64,51 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:site_name" content="The Tormont 50" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={ogImageUrl} />
     <meta property="og:type" content="website" />
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link
+      rel="preload"
+      href="/fonts/68c878e01b5edefb6e67af5c_Mona-Sans-Bold.otf"
+      as="font"
+      type="font/otf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/68c878e01b5edefb6e67af5d_Mona-Sans-Medium.otf"
+      as="font"
+      type="font/otf"
+      crossorigin
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
     <link
       href="/images/68cffdd706f3e37df7353440_favicon-1-1.png"
       rel="shortcut icon"
@@ -48,11 +118,15 @@ const {
       href="/images/68cffdbd3f158f07fb8a5b1a_favicon-1.png"
       rel="apple-touch-icon"
     />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdGraph)} />
   </head>
   <body class={bodyClass}>
     <div class="page-wrapper">
       <Header />
-      <slot />
+      <main id="main-content">
+        <slot />
+      </main>
       <Footer />
     </div>
 

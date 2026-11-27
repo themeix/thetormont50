@@ -35,5 +35,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: dist/
-          server-dir: /home/teramont/domains/tormontgroup.com/public_html/
+          server-dir: /home/txfdmont/domains/thetormont50.com/public_html/
           dangerous-clean-slate: false

@@ -45,13 +45,16 @@ $safeEmail = str_replace(["\r", "\n"], '', $email);
 $safeSubject = str_replace(["\r", "\n"], '', $subject);
 
 $to = 'support@themeix.com';
+$fromAddress = 'noreply@thetormont50.com';
 $email_subject = "The Tormont 50 Contact Form: $safeSubject";
 $email_body = "Name: $name\nEmail: $email\nPhone: $phone\nSubject: $subject\n\nMessage:\n$message";
-$headers = "From: $safeName <$safeEmail>\r\n";
-$headers .= "Reply-To: $safeEmail\r\n";
+$headers = "From: The Tormont 50 <$fromAddress>\r\n";
+$headers .= "Reply-To: $safeName <$safeEmail>\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "X-Mailer: PHP/" . PHP_VERSION . "\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-if (mail($to, $email_subject, $email_body, $headers)) {
+if (mail($to, $email_subject, $email_body, $headers, "-f $fromAddress")) {
     echo json_encode(['success' => true, 'message' => 'Message sent successfully']);
 } else {
     http_response_code(500);

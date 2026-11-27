@@ -1,0 +1,74 @@
+---
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+---
+
+<footer>
+  <div class="reveal-on-scroll">
+    <div class="container-fluid w-container">
+      <div class="footer-main-container">
+        <div class="inner-container _1068px center">
+          <div class="footer-top">
+            <div class="w-layout-grid grid-footer-2-col---title-and-btn">
+              <div class="inner-container _380px _100-tablet">
+                <h2 class="display-2 color-neutral-100 mg-bottom-0">
+                  Get in Touch with Our Team Today
+                </h2>
+              </div>
+              <div class="buttons-row right left-tablet">
+                <a href="/contact" class="btn-primary white button-row w-button">
+                  Get in touch<span class="line-rounded-icon link-icon-right">&#xe805;</span>
+                </a>
+                <a href="/about" class="btn-secondary white w-button">About Us</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-middle">
+            <div class="w-layout-grid grid-footer---3-column">
+              <div>
+                <div class="text-300 bold footer-title">Explore Tormont50</div>
+                <div class="w-layout-grid footer-main-pages-grid">
+                  <ul role="list" class="footer-list-wrapper">
+                    <li class="footer-list-item">
+                      <a href="/" class:list={['footer-link', currentPath === '/' && 'w--current']}>Home</a>
+                    </li>
+                    <li class="footer-list-item">
+                      <a href="/about" class:list={['footer-link', currentPath === '/about' && 'w--current']}>About</a>
+                    </li>
+                    <li class="footer-list-item">
+                      <a href="/services" class:list={['footer-link', currentPath === '/services' && 'w--current']}>Services</a>
+                    </li>
+                    <li class="footer-list-item">
+                      <a href="/leadership" class:list={['footer-link', currentPath === '/leadership' && 'w--current']}>Leadership</a>
+                    </li>
+                    <li class="footer-list-item">
+                      <a href="/contact" class:list={['footer-link', currentPath === '/contact' && 'w--current']}>Contact</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <div class="text-300 bold footer-title">Important Links</div>
+                <ul role="list" class="footer-list-wrapper">
+                  <li class="footer-list-item">
+                    <a href="/privacy-policy" class:list={['footer-link', currentPath === '/privacy-policy' && 'w--current']}>Privacy Policy</a>
+                  </li>
+                  <li class="footer-list-item">
+                    <a href="/cookie-policy" class:list={['footer-link', currentPath === '/cookie-policy' && 'w--current']}>Cookie Policy</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <div class="w-layout-grid grid-footer-logo---paragrah">
+              <p class="color-neutral-500 mg-bottom-0">Tormont 50 © 2025 / All Rights Reserved</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

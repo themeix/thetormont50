@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { teamMembers } from '../../data/team';
+
+export function getStaticPaths() {
+  return teamMembers.map((member) => ({
+    params: { slug: member.slug },
+    props: { member },
+  }));
+}
+
+const { member } = Astro.props;
+---
+
+<Layout title={`${member.name} – Tormont 50`}>
+  <Fragment set:html={member.html} />
+</Layout>

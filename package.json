@@ -1,0 +1,28 @@
+{
+  "name": "thetormont50",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/themeix/thetormont50.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/themeix/thetormont50/issues"
+  },
+  "homepage": "https://github.com/themeix/thetormont50#readme",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "astro": "^7.4.1",
+    "tailwindcss": "^4.3.5"
+  }
+}

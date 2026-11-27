@@ -1,0 +1,67 @@
+---
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Process', href: '/process' },
+  { label: 'Services', href: '/services' },
+  { label: 'Leadership', href: '/leadership' },
+  { label: 'Contact', href: '/contact' },
+];
+---
+
+<header class="header-wrapper w-nav" role="banner">
+  <div class="container-default w-container">
+    <div class="header-content-wrapper">
+      <div class="header-left-side">
+        <a
+          href="/"
+          class:list={['header-logo-link left w-nav-brand', currentPath === '/' && 'w--current']}
+          aria-current={currentPath === '/' ? 'page' : undefined}
+        >
+          <img
+            src="/images/68c953f29fc3e99eb7ef6793_Tormont-50-logo-.png"
+            loading="eager"
+            alt="Tormont 50"
+          />
+        </a>
+        <nav role="navigation" class="header-nav-menu-wrapper w-nav-menu" data-nav-menu>
+          <ul role="list" class="header-nav-menu-list">
+            {
+              navItems.map((item) => {
+                const isActive = currentPath === item.href;
+                return (
+                  <li class="header-nav-list-item left">
+                    <a
+                      href={item.href}
+                      class:list={['header-nav-link w-nav-link', isActive && 'w--current']}
+                      aria-current={isActive ? 'page' : undefined}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </nav>
+      </div>
+      <div class="header-right-side">
+        <a href="/contact" class="btn-primary small header-btn-hidde-on-mb w-button">
+          Get started
+        </a>
+        <button
+          type="button"
+          class="hamburger-menu-wrapper w-nav-button border-0 bg-transparent cursor-pointer"
+          data-mobile-toggle
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <div class="hamburger-menu-bar top"></div>
+          <div class="hamburger-menu-bar bottom"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

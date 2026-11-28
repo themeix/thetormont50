@@ -14204,6 +14204,18 @@ footer .container-fluid {
   transition: opacity 0.25s ease;
 }
 
+.header-logo-link {
+  max-width: 176px;
+  flex-shrink: 0;
+  margin-right: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .header-logo-link {
+    max-width: 150px;
+  }
+}
+
 .header-logo-link:hover {
   opacity: 0.88;
 }

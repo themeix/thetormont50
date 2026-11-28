@@ -14,27 +14,28 @@ const navItems = [
 <header class="header-wrapper w-nav" role="banner">
   <div class="container-default w-container">
     <div class="header-content-wrapper">
-      <div class="header-left-side">
-        <a
-          href="/"
-          class:list={['header-logo-link left w-nav-brand', currentPath === '/' && 'w--current']}
-          aria-current={currentPath === '/' ? 'page' : undefined}
-        >
-          <img
-            src="/images/68c953f29fc3e99eb7ef6793_Tormont-50-logo-.png"
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-            alt="The Tormont 50 logo"
-          />
-        </a>
+      <a
+        href="/"
+        class:list={['header-logo-link w-nav-brand', currentPath === '/' && 'w--current']}
+        aria-current={currentPath === '/' ? 'page' : undefined}
+      >
+        <img
+          src="/images/68c953f29fc3e99eb7ef6793_Tormont-50-logo-.png"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          alt="The Tormont 50 logo"
+        />
+      </a>
+
+      <div class="header-right-side">
         <nav role="navigation" class="header-nav-menu-wrapper w-nav-menu" data-nav-menu>
           <ul role="list" class="header-nav-menu-list">
             {
               navItems.map((item) => {
                 const isActive = currentPath === item.href;
                 return (
-                  <li class="header-nav-list-item left">
+                  <li class="header-nav-list-item">
                     <a
                       href={item.href}
                       class:list={['header-nav-link w-nav-link', isActive && 'w--current']}
@@ -48,12 +49,7 @@ const navItems = [
             }
           </ul>
         </nav>
-      </div>
-      <div class="header-right-side">
-        <a href="/contact" class="btn-primary small header-btn-hidde-on-mb header-cta-btn w-button">
-          <span>Get started</span>
-          <span class="line-rounded-icon link-icon-right">&#xe805;</span>
-        </a>
+
         <button
           type="button"
           class="hamburger-menu-wrapper w-nav-button border-0 bg-transparent cursor-pointer"
